@@ -1,6 +1,10 @@
 package org.sudoku.view;
 
+import java.awt.Color;
+import java.awt.GridLayout;
+
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 import org.sudoku.model.LogicModule;
 
@@ -9,9 +13,13 @@ public class SudokuGrid extends JPanel implements LogicModule {
 	private SudokuBox[] boxes;
 	
 	public SudokuGrid() {
+		setLayout(new GridLayout(3, 3));
+		setBorder(new LineBorder(Color.BLACK, 2));
+		
 		boxes = new SudokuBox[9];
 		for(int i = 0; i < boxes.length; i++) {
 			boxes[i] = new SudokuBox();
+			add(boxes[i]);
 		}
 	}
 	
